@@ -408,8 +408,8 @@ def insert_deadie(user_id):
 
 def get_deadies():
     """Gain the list of deadies from the database."""
-    c.execute("SELECT * FROM 'deadies'")
-    return [int(buddy[0]) for buddy in c.fetchall()]
+    c.execute("SELECT user_id, reason FROM 'deadies'")
+    return [(int(row[0]),str(row[1])) for row in c.fetchall()]
 
 def delete_deadies():
     """Remove all deadies from the database."""
